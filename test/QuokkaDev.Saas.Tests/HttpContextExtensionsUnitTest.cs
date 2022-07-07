@@ -16,7 +16,9 @@ public class HttpContextExtensionsUnitTest
         httpContextMock.ItemsMock.Mock.Setup(m => m.ContainsKey(Constants.HTTP_CONTEXT_TENANT_KEY)).Returns(false);
 
         // Act
+#pragma warning disable RCS1196 // Call extension method as instance method.
         var tenant = HttpContextExtensions.GetTenant<Tenant<int>, int>(httpContextMock);
+#pragma warning restore RCS1196 // Call extension method as instance method.
 
         // Assert
         tenant.Should().BeNull();
@@ -31,7 +33,9 @@ public class HttpContextExtensionsUnitTest
         httpContextMock.ItemsMock.Mock.Setup(m => m.ContainsKey(Constants.HTTP_CONTEXT_TENANT_KEY)).Returns(true);
         httpContextMock.ItemsMock.Mock.SetupGet(m => m[Constants.HTTP_CONTEXT_TENANT_KEY]).Returns(new Tenant<int>(1, "my-tenant-identifier"));
         // Act
+#pragma warning disable RCS1196 // Call extension method as instance method.
         var tenant = HttpContextExtensions.GetTenant<Tenant<int>, int>(httpContextMock);
+#pragma warning restore RCS1196 // Call extension method as instance method.
 
         // Assert
         tenant.Should().NotBeNull();

@@ -61,7 +61,7 @@ namespace QuokkaDev.Saas.Tests
             httpContextMock.RequestServicesMock.Mock.Verify(m => m.GetService(It.IsAny<Type>()), Times.Once);
         }
 
-        private (TenantMiddleware<Tenant<int>, int> Middleware, HttpContextMock Context) SetupMocks(Tenant<int> tenant, bool keyPresent, bool registerAccessService = true)
+        private static (TenantMiddleware<Tenant<int>, int> Middleware, HttpContextMock Context) SetupMocks(Tenant<int> tenant, bool keyPresent, bool registerAccessService = true)
         {
             var delegateMock = new Mock<RequestDelegate>();
             TenantMiddleware<Tenant<int>, int> middleware = new(delegateMock.Object);

@@ -18,7 +18,6 @@ namespace QuokkaDev.Saas
 
         public async Task Invoke(HttpContext context)
         {
-
             if (!context.Items.ContainsKey(Constants.HTTP_CONTEXT_TENANT_KEY) &&
                  context.RequestServices.GetService(typeof(ITenantAccessService<T, TKey>)) is ITenantAccessService<T, TKey> tenantService)
             {
