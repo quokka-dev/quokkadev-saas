@@ -1,5 +1,6 @@
 ﻿using HttpContextMoq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using QuokkaDev.Saas.Abstractions;
 using System;
@@ -10,8 +11,12 @@ namespace QuokkaDev.Saas.Tests
 {
     public class TenantMiddlewareUnitTest
     {
+        private readonly IServiceCollection? services = null;
+
         public TenantMiddlewareUnitTest()
         {
+            services = new ServiceCollection();
+            services.AddTransient<TenantMiddleware<Tenant<int>, int>>();
         }
 
         [Fact(DisplayName = "Tenant should be added to context")]
