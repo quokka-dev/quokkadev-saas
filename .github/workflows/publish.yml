@@ -78,8 +78,8 @@ jobs:
       # workaround for code coverage issue
 
       - run: |  
-          mkdir -p test/QuokkaDev.Saas.Tests/bin/release/net6.0 
-          cp ~/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll test/QuokkaDev.Saas.Tests/bin/release/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+          mkdir -p test/QuokkaDev.Saas.Tests/bin/Debug/net6.0 
+          cp ~/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll test/QuokkaDev.Saas.Tests/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
 
       # Test and reporting
 
@@ -87,7 +87,7 @@ jobs:
         run: dotnet test --no-restore --verbosity normal --logger "trx;LogFileName=test-results.trx" --collect:"XPlat Code Coverage" --results-directory coverage -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover,cobertura
     
       - run: |
-          cd test/QuokkaDev.Saas.Tests/bin/release/net6.0
+          cd test/QuokkaDev.Saas.Tests/bin/Debug/net6.0
           ls
 
       - name: Generate Unit Test Report
