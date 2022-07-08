@@ -14,8 +14,7 @@
 		<RepositoryUrl>https://github.com/quokkadev/quokkadev-saas</RepositoryUrl>
 		<PackageTags>library;c#;</PackageTags>		
 		<Copyright>QuokkaDev © 2022</Copyright>			
-		<PackageIcon>icon.png</PackageIcon>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<PackageIcon>icon.png</PackageIcon>		
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -33,8 +32,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
 		<PackageReference Include="QuokkaDev.Saas.Abstractions" Version="1.0.3" />
 		<PackageReference Include="QuokkaDev.Saas.DependencyInjection" Version="1.1.3" />
 		<PackageReference Include="Roslynator.Analyzers" Version="4.1.1">
